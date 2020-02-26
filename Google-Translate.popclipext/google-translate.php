@@ -52,6 +52,8 @@ function googleTrans($q, $tl) {
 }
 
 if ($input = getenv('POPCLIP_TEXT')) {
+  shell_exec('say "'.$input.'"');
+  
   $modifier = getenv('POPCLIP_MODIFIER_FLAGS');
   $tlKey = (int)$modifier === 1048576 ? 'POPCLIP_OPTION_TLC' : 'POPCLIP_OPTION_TL';
   $json = googleTrans($input, option($tlKey, 'en'));
